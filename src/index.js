@@ -43,6 +43,10 @@ function addDeviceOrientationHandler () {
   window.addEventListener('deviceorientation', (event) => {
     const message = `Alpha: ${event.alpha} Beta: ${event.beta} Gamma: ${event.gamma}`;
 
+    if (event.webkitCompassHeading) {
+      message += ` Compass Heading: ${event.webkitCompassHeading};`
+    }
+
     messageTextNode.nodeValue = message;
   });
 }
