@@ -16,6 +16,8 @@ if (window.DeviceOrientationEvent) {
       DeviceOrientationEvent.requestPermission().then((requestStatus) => {
         if (requestStatus === 'granted') {
           messageTextNode.nodeValue = "Device orientation permission granted - no data yet";
+
+          addDeviceOrientationHandler();
         }
         else {
           messageTextNode.nodeValue = "Device orientation permission refused";
@@ -25,14 +27,18 @@ if (window.DeviceOrientationEvent) {
   }
   else {
     messageTextNode.nodeValue = "Device orientation supported - no data yet";
+
+    addDeviceOrientationHandler();
   }
 }
 else {
   messageTextNode.nodeValue = "Device orientation not supported";
 }
 
-window.addEventListener('deviceorientation', (event) => {
-  const message = `Alpha: ${event.alpha} Beta: ${event.beta} Gamma: ${event.gamma}`;
+function addDeviceOrientationHandler () {
+  window.addEventListener('deviceorientation', (event) => {
+    const message = `Alpha: ${event.alpha} Beta: ${event.beta} Gamma: ${event.gamma}`;
 
-  messageTextNode.nodeValue = message;
-});
+    messageTextNode.nodeValue = message;
+  });
+}
