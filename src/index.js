@@ -24,9 +24,9 @@ if (window.DeviceOrientationEvent) {
         else {
           messageTextNode.nodeValue = "Device orientation permission refused";
         }
-      }).catch() {
+      }).catch(() => {
         messageTextNode.nodeValue = "Device orientation permission error";
-      };
+      });
     });
   }
   else {
