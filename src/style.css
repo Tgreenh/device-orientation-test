@@ -1,0 +1,26 @@
+html, body
+{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewer
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+.message {
+  padding: 8px 16px;
+  color: #ccc;
+  background-color: rgba(0, 0, 0, .5);
+  font-family: "Proxima Nova", Arial, sans-serif;
+  font-size: 1rem;
+}
+
