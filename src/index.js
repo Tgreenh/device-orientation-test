@@ -13,6 +13,8 @@ if (window.DeviceOrientationEvent) {
     messageTextNode.nodeValue = "Device orientation supported - tap to allow";
 
     messageElement.addEventListener('click', (event) => {
+      messageTextNode.nodeValue = "Device orientation - requesting permission";
+
       DeviceOrientationEvent.requestPermission().then((requestStatus) => {
         if (requestStatus === 'granted') {
           messageTextNode.nodeValue = "Device orientation permission granted - no data yet";
@@ -22,7 +24,9 @@ if (window.DeviceOrientationEvent) {
         else {
           messageTextNode.nodeValue = "Device orientation permission refused";
         }
-      });
+      }).catch() {
+        messageTextNode.nodeValue = "Device orientation permission error";
+      };
     });
   }
   else {
